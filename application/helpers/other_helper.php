@@ -1,38 +1,44 @@
-<?php
-    if(!function_exists('show_active_menu')) {
-        function show_active_menu($slug, $category) {
-            $ci=& get_instance();
+<?php 
 
-            $result = "";
+	if(!function_exists('show_active_menu')) {
 
-            if($ci->uri->segment(1,0) === $slug) {
-                $result = 'class="active"';
-            }
+		function show_active_menu($slug, $category) {
 
-            if($ci->uri->segment(3,0) === $slug && $ci->uri->segment(1,0) === 'movies' && $ci->uri->segment(2,0) === 'type') {
-                $result = 'class"active"';
-            }
+			$ci=& get_instance();
 
-            if($slug === 'films'&& $category === '1' && $ci->uri->segment(1,0) === 'movies' && $ci->uri->segment(2,0) === 'view') {
-                $result = 'class"active"';
-            }
+			$result = "";
+		
+			if($ci->uri->segment(1,0) === $slug) {
+				$result = 'class="active"';
+			}
 
-            if($slug === 'serials' && $category === '2' && $ci->uri->segment(1,0) === 'movies' && $ci->uri->segment(2,0) === 'view') {
-                $result = 'class"active"';
-            }
+			if($ci->uri->segment(3,0) === $slug && $ci->uri->segment(1,0) === 'movies' && $ci->uri->segment(2,0) === 'type') {
+				$result = 'class="active"';
+			}
 
-            return $result;
+			if($slug === 'films' && $category === '1' && $ci->uri->segment(1,0) === 'movies' && $ci->uri->segment(2,0) === 'view') {
+				$result = 'class="active"';
+			}
 
-        }
-    }
-if(!function_exists('getUserNameByID')) {
-    function getUserNameByID($user_id) {
-        $ci=& get_instance();
+			if($slug === 'serials' && $category === '2' && $ci->uri->segment(1,0) === 'movies' && $ci->uri->segment(2,0) === 'view') {
+				$result = 'class="active"';
+			}
 
-        $ci->load->model('dx_auth/users');
+			return $result;
+		}
+	}
 
-        $query = $ci->users->get_user_by_id($user_id);
-        $result= $query->row();
-        return $result;
-    }
-}
+	if(!function_exists('getUserNameByID')) {
+
+		function getUserNameByID($user_id) {
+
+			$ci=& get_instance();
+
+			$ci->load->model('dx_auth/users');
+
+			$query = $ci->users->get_user_by_id($user_id);
+			$result = $query->row();
+			return $result;
+
+		}
+	}

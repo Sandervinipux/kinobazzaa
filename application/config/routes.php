@@ -75,9 +75,9 @@ $route['movies/type/films'] = 'movies/type/films/$1';
 $route['movies/type/serials'] = 'movies/type/serials/$1';
 
 $route['rating'] = 'main/rating';
-$route['raiting/(:any'] = 'main/rating/$1';
+$route['rating/(:any)'] = 'main/rating/$1';
 
 $route['contact'] = 'main/contact';
 
 $route['search'] = 'search';
-$route['search/(:any)'] = 'serach/$1';
+$route['search/(:any)'] = 'search/$1';
